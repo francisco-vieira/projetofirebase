@@ -77,7 +77,7 @@ public class FormLogin extends AppCompatActivity {
     }
 
     private void initApp() {
-        this.startActivity(new Intent(this, TelaPrincipal.class));
+        this.startActivity(new Intent(this, MainScreen.class));
         this.finish();
     }
 }

@@ -1,36 +1,31 @@
 package com.margay.projetofirebase;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.Objects;
 
-public class TelaPrincipal extends AppCompatActivity {
+public class MainScreen extends AppCompatActivity {
 
     private String id;
     private String email;
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    private TextView editTextName;
-    private TextView editTextEmail;
+    private TextView textName;
+    private TextView textEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_principal);
+        setContentView(R.layout.activity_main_screen);
 
         this.initComponents();
 
@@ -56,14 +51,14 @@ public class TelaPrincipal extends AppCompatActivity {
         DocumentReference reference = db.collection("users").document(id);
         reference.addSnapshotListener((value, error) -> {
             if (value != null) {
-                this.editTextName.setText(value.getString("name"));
-                this.editTextEmail.setText(email);
+                this.textName.setText(value.getString("name"));
+                this.textEmail.setText(email);
             }
         });
     }
 
     private void initComponents() {
-        this.editTextName = findViewById(R.id.mainTextName);
-        this.editTextEmail = findViewById(R.id.mainTextEmail);
+        this.textName = findViewById(R.id.mainTextName);
+        this.textEmail = findViewById(R.id.mainTextEmail);
     }
 }
