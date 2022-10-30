@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".FormCadastro">
+
+    <TextView
+        android:id="@+id/textTitle"
+        style="@style/title"
+        android:text="@string/title_cadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/containerComponent"
+        style="@style/containerComponent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textTitle"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_nome"
+        style="@style/edit_text"
+        android:hint="@string/nome"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@id/containerComponent"
+        app:layout_constraintStart_toStartOf="@id/containerComponent"
+        app:layout_constraintTop_toTopOf="@id/containerComponent" />
+
+    <EditText
+        android:id="@+id/edit_email"
+        style="@style/edit_text_long"
+        android:drawableEnd="@drawable/ic_email_24"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@id/containerComponent"
+        app:layout_constraintStart_toStartOf="@id/containerComponent"
+        app:layout_constraintTop_toBottomOf="@id/edit_nome" />
+
+    <EditText
+        android:id="@+id/edit_password"
+        style="@style/edit_text"
+        android:drawableEnd="@drawable/ic_eye_24"
+        android:hint="@string/senha"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@id/containerComponent"
+        app:layout_constraintStart_toStartOf="@id/containerComponent"
+        app:layout_constraintTop_toBottomOf="@id/edit_email" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cmdSave"
+        style="@style/button"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="@id/containerComponent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerComponent"
+        android:text="@string/save"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
